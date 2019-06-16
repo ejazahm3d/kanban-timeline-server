@@ -11,7 +11,7 @@ export const registerUser = async (
 ): Promise<Response> => {
   try {
     const { email, hash } = req.body;
-    console.log(email, hash);
+
     return res.json({ message: "Success. User Registered" });
   } catch (error) {
     return res.json({ Error: error.message });

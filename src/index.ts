@@ -1,11 +1,12 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import { Account } from "./entity/User";
 import express, { Request, Response } from "express";
 import bodyParser = require("body-parser");
 import morgan = require("morgan");
 import cors = require("cors");
-import auth from "./middlewares/auth";
+// routes
+import auth from "./routes/api/auth";
+import user from "./routes/api/user";
 
 createConnection()
   .then(async connection => {
@@ -24,6 +25,7 @@ createConnection()
     );
     // Define Routes
     app.use("/api/auth", auth);
+    app.use("/api/user", user);
     app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
   })
   .catch(error => console.log(error));

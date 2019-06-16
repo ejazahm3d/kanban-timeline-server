@@ -2,10 +2,10 @@ import express, { Request, Response } from "express";
 import { registerUser } from "../../controllers/AuthController";
 
 const router = express.Router();
-// @route       POST   api/auth
-// @description Authenticate User and get token
+// @route       POST   api/user
+// @description Register User
 // @access      Public
-router.post("/register", registerUser);
+router.post("/", registerUser);
 router.get("/signin", (req: Request, res: Response) => {
   return res.json("Signin");
 });
