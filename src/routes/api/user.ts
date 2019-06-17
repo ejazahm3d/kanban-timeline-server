@@ -5,8 +5,5 @@ const router = express.Router();
 // @description Register User
 // @access      Public
 router.post("/", UserController.newUser);
-router.get("/signin", (req: Request, res: Response) => {
-  return res.json("Signin");
-});
 
 export default router;
